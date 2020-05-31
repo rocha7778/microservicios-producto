@@ -1,0 +1,32 @@
+spring:
+ application:
+  name: servicio-producto
+ datasource:
+    database: ${MYSQL_DATABASE:db_springboot_cloud}
+    host: ${MYSQL_HOST:localhost}
+    port: ${MYSQL_PORT:3306}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_ROOT_PASSWORD:nHgi^JTey*ym}
+    url: jdbc:mysql://${spring.datasource.host}:${spring.datasource.port}/${spring.datasource.database}?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Bogota
+
+ jpa:
+    database: mysql 
+    show-sql: true 
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8880
+   
+cloud:
+ aws:
+  stack:
+   auto: false
+  region:
+   static: us-east-2
+  credentials:
+    access-key: ${AWS_ACCESS_KEY_ID}
+    secret-key: ${AWS_SECRET_ACCESS_KEY}
+  end-point:
+     uri: https://sqs.us-east-2.amazonaws.com/064399826749/spring-boot-sqs 
+  
+      
